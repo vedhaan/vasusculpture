@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vasu Sculpture | Artisan Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        /* Showcase Section */
+        .sculpture-showcase {
+            padding: 100px 5%;
+            position: relative;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .showcase-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .showcase-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.8rem;
+            font-weight: 600;
+            color: #e6d7c4;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            letter-spacing: 2px;
+        }
+
+        .showcase-header h2:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #8c6956, transparent);
+        }
+
+        .showcase-header p {
+            font-size: 1.3rem;
+            color: #b0a9a1;
+            line-height: 1.7;
+            margin-top: 35px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Masonry Grid */
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-auto-rows: minmax(300px, auto);
+            grid-auto-flow: dense;
+            gap: 30px;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            height: 900px;
+        }
+
+        .collection-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.7);
+            transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            background: #1a1a1a;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .collection-item:nth-child(1) {
+            grid-row: span 2;
+        }
+
+        .collection-item:nth-child(3) {
+            grid-column: span 2;
+        }
+
+        .collection-item:nth-child(5) {
+            grid-row: span 2;
+        }
+
+        .collection-item:nth-child(7) {
+            grid-column: span 2;
+        }
+
+        .collection-item:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px -10px rgba(140, 105, 86, 0.35);
+        }
+
+        .item-image {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .collection-item:hover .item-image img {
+            transform: scale(1.08);
+        }
+
+        .item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+            padding: 40px 30px 30px;
+            transition: all 0.5s ease;
+            z-index: 2;
+        }
+
+        .collection-item:hover .item-overlay {
+            padding-top: 50px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, transparent 100%);
+        }
+
+        .item-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #e6d7c4;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+            transform: translateY(10px);
+            opacity: 0.95;
+        }
+
+        .collection-item:hover .item-name {
+            transform: translateY(0);
+            opacity: 1;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        .item-material {
+            color: #b89e8a;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease 0.1s;
+        }
+
+        .collection-item:hover .item-material {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            border-radius: 50%;
+            filter: blur(15px);
+            opacity: 0.15;
+        }
+
+        .floating-1 {
+            top: 15%;
+            left: 7%;
+            width: 150px;
+            height: 150px;
+            background: #8c6956;
+            animation: float 12s ease-in-out infinite;
+        }
+
+        .floating-2 {
+            bottom: 20%;
+            right: 8%;
+            width: 200px;
+            height: 200px;
+            background: #6a4e3f;
+            animation: float 14s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+
+        .floating-3 {
+            top: 30%;
+            right: 12%;
+            width: 100px;
+            height: 100px;
+            background: #8c6956;
+            animation: float 8s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-40px) translateX(20px) rotate(10deg);
+            }
+            66% {
+                transform: translateY(30px) translateX(-25px) rotate(-10deg);
+            }
+            100% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+        }
+
+       /* Responsive Design */
+@media (max-width: 1200px) {
+    .collection-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        height: auto; /* Fix height */
+    }
+
+    .collection-item:nth-child(3),
+    .collection-item:nth-child(7),
+    .collection-item:nth-child(1),
+    .collection-item:nth-child(5) {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .sculpture-showcase {
+        padding: 80px 5%;
+    }
+
+    .showcase-header h2 {
+        font-size: 3.2rem;
+    }
+
+    .showcase-header p {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .showcase-header h2 {
+        font-size: 2.6rem;
+    }
+
+    .collection-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+    }
+
+    .item-name {
+        font-size: 1.8rem;
+    }
+
+    .item-material {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sculpture-showcase {
+        padding: 60px 5%;
+    }
+
+    .showcase-header {
+        margin-bottom: 50px;
+    }
+
+    .showcase-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .showcase-header p {
+        font-size: 1.05rem;
+    }
+
+    .collection-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .item-name {
+        font-size: 1.6rem;
+    }
+
+    .item-material {
+        font-size: 0.95rem;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <section class="sculpture-showcase">
+        <!-- Floating decorative elements -->
+        <div class="floating-element floating-1"></div>
+        <div class="floating-element floating-2"></div>
+        <div class="floating-element floating-3"></div>
+
+        <div class="showcase-header">
+            <h2>Artisan Collection</h2>
+            <p>Discover our most exquisite sculptures, handcrafted by master artisans using centuries-old techniques blended with contemporary design.</p>
+        </div>
+
+        <div class="collection-grid">
+            <!-- Sculpture 1 -->
+            <div class="collection-item">
+                <div class="item-image">
+                    <img src="img/DOC-20250728-WA0002.jpg" alt="Celestial Guardian">
+                </div>
+                <div class="item-overlay">
+                    <h3 class="item-name">Celestial Guardian</h3>
+                    <p class="item-material">Carrara Marble</p>
+                </div>
+            </div>
+
+            <!-- Sculpture 2 -->
+            <div class="collection-item">
+                <div class="item-image">
+                    <img src="img/DOC-20250728-WA0003.jpg" alt="Eternal Grace">
+                </div>
+                <div class="item-overlay">
+                    <h3 class="item-name">Eternal Grace</h3>
+                    <p class="item-material">Bronze Sculpture</p>
+                </div>
+            </div>
+
+            <!-- Sculpture 3 -->
+            <div class="collection-item">
+                <div class="item-image">
+                    <img src="img/DOC-20250728-WA0020.jpg" alt="Water Nymph">
+                </div>
+                <div class="item-overlay">
+                    <h3 class="item-name">Water Nymph</h3>
+                    <p class="item-material">Fountain Sculpture</p>
+                </div>
+            </div>
+
+            <!-- Sculpture 4 -->
+            <div class="collection-item">
+                <div class="item-image">
+                    <img src="img/DOC-20250728-WA0005.jpg" alt="Guardian Lion">
+                </div>
+                <div class="item-overlay">
+                    <h3 class="item-name">Guardian Lion</h3>
+                    <p class="item-material">Granite Sculpture</p>
+                </div>
+            </div>
+
+           
+        </div>
+    </section>
+
+    <script>
+        // Add subtle parallax effect to floating elements
+        document.addEventListener('DOMContentLoaded', function () {
+            const floatingElements = document.querySelectorAll('.floating-element');
+            
+            window.addEventListener('mousemove', function(e) {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                floatingElements.forEach((el, index) => {
+                    const speed = 0.02 * (index + 1);
+                    const xMove = (x - 0.5) * 40 * speed;
+                    const yMove = (y - 0.5) * 40 * speed;
+                    
+                    el.style.transform = translate($`{xMove}px, ${yMove}px`);
+                });
+            });
+            
+            // Add scroll animation to masonry items
+            const masonryItems = document.querySelectorAll('.collection-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            masonryItems.forEach(item => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(50px)';
+                item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>

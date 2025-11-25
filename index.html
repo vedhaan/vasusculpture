@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Vasu Sculpture | Garden Collection</title>
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500&display=swap"
+    rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
+</head>
+
+<body>
+  <!-- Premium Navbar with Hamburger -->
+<nav class="navbar">
+  <a href="#" class="brand-logo">
+    <img src="img/logo.png" alt="">
+  </a>
+  
+  <div class="nav-links">
+    <a href="#" class="nav-link">Collections</a>
+    <a href="#" class="nav-link">Commission</a>
+    <a href="#" class="nav-link">Journal</a>
+  </div>
+  
+  <!-- Hamburger Icon -->
+  <button class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+  <!-- 🔹 Sticky 3D Section -->
+  <div class="scene-container">
+    <a-scene loading-screen="enabled: false" vr-mode-ui="enabled: false" embedded>
+      <a-sky src="img/std4.jpg" rotation="0 0 0"></a-sky>
+      <a-light type="ambient" intensity="0.1"></a-light>
+      <a-light type="directional" intensity="0.6" position="-1 2 1"></a-light>
+      <a-light type="point" intensity="1.8" distance="8" decay="2" position="0 2 -4" color="#f8f3e0"></a-light>
+
+      <a-entity id="cameraRig" rotation="0 0 0">
+        <a-entity camera="fov: 60" look-controls="enabled: false" position="0 1.6 0"></a-entity>
+      </a-entity>
+
+      <a-image src="img/s-1.png" position="0 1.3 -5" width="4" height="4" rotation="0 0 0"
+        material="shader: flat; transparent: true" data-view="0" data-name="Half Circle Stacked"></a-image>
+      <a-image src="img/s-4.png" position="6 1.3 -.2" width="4" height="4" rotation="0 90 0"
+        material="shader: flat; transparent: true" data-view="1" data-name="Erhebungx"></a-image>
+      <a-image src="img/s-3.png" position="0 1.3 5" width="4" height="4" rotation="0 180 0"
+        material="shader: flat; transparent: true" data-view="2" data-name="Cubic spaces"></a-image>
+      <a-image src="img/s-2.png" position="-5.5 1.3 0" width="4" height="4" rotation="0 270 0"
+        material="shader: flat; transparent: true" data-view="3" data-name="Gravitas"></a-image>
+    </a-scene>
+  </div>
+
+  <!-- 🔹 Overlay UI Elements -->
+  <div class="title-container">
+    <div class="title-text">The Vasu<br>Collection</div>
+    <div class="sculpture-info" id="sculptureInfo">Half Circle Stacked</div>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="nav-button" id="navButton">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 12H19M12 5L19 12L12 19" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </div>
+  </div>
+
+
+<!-- Unified About Section -->
+<section class="about-unified" id="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>About Us</h2>
+    </div>
+
+    <div class="about-header">
+      <div class="founder">
+        <img src="img/a4.jpg" alt="Founder" class="founder-img">
+        <div class="founder-text">
+          <h3>Giovanni Rossi</h3>
+          <p class="founder-role">Founder, Vasu Sculpture</p>
+        </div>
+      </div>
+
+      <div class="vision">
+        <h3>Our Vision</h3>
+        <p>
+          To grow Vasu Sculpture into a global symbol of modern garden art — where traditional Indian craftsmanship
+          meets international design, and every sculpture transforms the spaces it touches.
+        </p>
+      </div>
+    </div>
+
+    <div class="about-body">
+      <p>
+        Vasu Sculpture began its journey in 2010 with humble roots — a small shop with a big vision.
+        What started as a local venture has grown into a globally recognized name in artistic and modern garden sculpture.
+      </p>
+      <p>
+        In the early days, our creations served the needs of our local community. As our work gained appreciation,
+        our reach expanded — first across Gujarat, then throughout India, and now across borders to serve clients worldwide.
+      </p>
+      <p>
+        From a small team of passionate individuals, we’ve grown into a skilled workforce that includes master sculptors.
+        We specialize in crafting modern sculptures that elevate gardens, villas, hotels, farmhouses, and more.
+        Each creation reflects creativity, craftsmanship, and a deep understanding of space and design.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+  <!-- Gallery Section -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-title">
+        <h2>Masterpiece Gallery</h2>
+        <div class="section-subtitle">Explore our collection of contemporary stone artistry</div>
+      </div>
+      <div class="masonry-grid">
+        <div class="masonry-item">
+          <div class="masonry-img-container">
+            <img src="img/DOC-20250728-WA0002.jpg" alt="Modern Angel Statue">
+            <div class="masonry-overlay">
+              <h3>Celestial Guardian</h3>
+              <p>Carrara Marble • 42" tall</p>
+            </div>
+          </div>
+        </div>
+        <div class="masonry-item">
+          <div class="masonry-img-container">
+            <img src="img/DOC-20250728-WA0003.jpg" alt="Classical Bust">
+            <div class="masonry-overlay">
+              <h3>Contemplation</h3>
+              <p>Weatherproof Resin • 28" tall</p>
+            </div>
+          </div>
+        </div>
+        <div class="masonry-item">
+          <div class="masonry-img-container">
+            <img src="img/DOC-20250728-WA0006.jpg" alt="Stone Animal Sculpture">
+            <div class="masonry-overlay">
+              <h3>Guardian Lion</h3>
+              <p>Granite • 32" tall</p>
+            </div>
+          </div>
+        </div>
+        <div class="masonry-item">
+          <div class="masonry-img-container">
+            <img src="img/DOC-20250728-WA0005.jpg" alt="Abstract Stone Sculpture">
+            <div class="masonry-overlay">
+              <h3>Harmonic Flow</h3>
+              <p>Sandstone • 36" tall</p>
+            </div>
+          </div>
+        </div>
+        <div class="masonry-item">
+          <div class="masonry-img-container">
+            <img src="img/DOC-20250728-WA0009.jpg" alt="Bird Bath with Sculpture">
+            <div class="masonry-overlay">
+              <h3>Water Nymph Fountain</h3>
+              <p>Cast Stone • 48" tall</p>
+            </div>
+          </div>
+        </div>
+        <div class="masonry-item">
+          <div class="masonry-img-container">
+            <img src="img/DOC-20250728-WA0021.jpg" alt="Modern Abstract Sculpture">
+            <div class="masonry-overlay">
+              <h3>Desert Sentinel</h3>
+              <p>Bronze Composite • 54" tall</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<!-- Features Section -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-title">
+      <h2>Craftsmanship Excellence</h2>
+      <div class="section-subtitle">
+        The pillars of our uncompromising quality
+      </div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-hands"></i></div>
+        <h3>Artisan Crafted</h3>
+        <p>Each piece is meticulously shaped by master sculptors with decades of experience in stone carving and sculpting traditions.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-sun"></i></div>
+        <h3>All-Weather Resilience</h3>
+        <p>Our sculptures withstand extreme conditions, maintaining structural integrity and beauty for decades without deterioration.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-palette"></i></div>
+        <h3>Bespoke Creations</h3>
+        <p>Collaborate with our artists to create unique pieces tailored to your vision and garden aesthetics.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-globe-europe"></i></div>
+        <h3>Global Curation</h3>
+        <p>Secure worldwide shipping with museum-grade packaging to ensure your sculpture arrives in pristine condition.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="materials" id="materials">
+  <div class="container">
+    <div class="section-title">
+      <h2>Premium Materials</h2>
+      <div class="section-subtitle">
+        Sourced from the finest quarries around the world
+      </div>
+    </div>
+
+    <div class="materials-grid">
+      <div class="material-card" style="background-image: url('img/m1.jpg');">
+        <div class="material-overlay">
+          <h3>Italian Marble</h3>
+          <p>Luxurious Carrara marble prized for its luminous white background and subtle grey veining.</p>
+        </div>
+      </div>
+
+      <div class="material-card" style="background-image: url('img/m2.jpg');">
+        <div class="material-overlay">
+          <h3>Architectural Resin</h3>
+          <p>High-density resin that withstands extreme temperatures while maintaining intricate details.</p>
+        </div>
+      </div>
+
+      <div class="material-card" style="background-image: url('img/m3.jpg');">
+        <div class="material-overlay">
+          <h3>Natural Sandstone</h3>
+          <p>Sedimentary stone with warm hues that develops a beautiful patina over time.</p>
+        </div>
+      </div>
+
+      <div class="material-card" style="background-image: url('img/m4.jpg');">
+        <div class="material-overlay">
+          <h3>Cast Bronze</h3>
+          <p>Traditional bronze casting using the lost-wax method for timeless heirloom pieces.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+    <section class="sculpture-showcase">
+        <!-- Floating decorative elements -->
+        <div class="floating-element floating-1"></div>
+        <div class="floating-element floating-2"></div>
+        <div class="floating-element floating-3"></div>
+
+        <div class="showcase-header">
+            <h2>Artisan Collection</h2>
+            <p>Discover our most exquisite sculptures, handcrafted by master artisans using centuries-old techniques blended with contemporary design.</p>
+        </div>
+
+        <div class="collection-grid">
+            <!-- Sculpture 1 -->
+            <div class="collection-item">
+                <div class="item-image">
+                    <img src="img/DOC-20250728-WA0002.jpg" alt="Celestial Guardian">
+                </div>
+                <div class="item-overlay">
+                    <h3 class="item-name">Celestial Guardian</h3>
+                    <p class="item-material">Carrara Marble</p>
+                </div>
+            </div>
+
+            <!-- Sculpture 2 -->
+            <div class="collection-item">
+                <div class="item-image">
+                    <img src="img/DOC-20250728-WA0003.jpg" alt="Eternal Grace">
+                </div>
+                <div class="item-overlay">
+                    <h3 class="item-name">Eternal Grace</h3>
+                    <p class="item-material">Bronze Sculpture</p>
+                </div>
+            </div>
+
+            <!-- Sculpture 3 -->
+            <div class="collection-item">
+                <div class="item-image">
+                    <img src="img/DOC-20250728-WA0020.jpg" alt="Water Nymph">
+                </div>
+                <div class="item-overlay">
+                    <h3 class="item-name">Water Nymph</h3>
+                    <p class="item-material">Fountain Sculpture</p>
+                </div>
+            </div>
+
+            <!-- Sculpture 4 -->
+            <div class="collection-item">
+                <div class="item-image">
+                    <img src="img/DOC-20250728-WA0005.jpg" alt="Guardian Lion">
+                </div>
+                <div class="item-overlay">
+                    <h3 class="item-name">Guardian Lion</h3>
+                    <p class="item-material">Granite Sculpture</p>
+                </div>
+            </div>
+
+           
+        </div>
+    </section>
+
+    <script>
+        // Add subtle parallax effect to floating elements
+        document.addEventListener('DOMContentLoaded', function () {
+            const floatingElements = document.querySelectorAll('.floating-element');
+            
+            window.addEventListener('mousemove', function(e) {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                floatingElements.forEach((el, index) => {
+                    const speed = 0.02 * (index + 1);
+                    const xMove = (x - 0.5) * 40 * speed;
+                    const yMove = (y - 0.5) * 40 * speed;
+                    
+                    el.style.transform = translate($`{xMove}px, ${yMove}px`);
+                });
+            });
+            
+            // Add scroll animation to masonry items
+            const masonryItems = document.querySelectorAll('.collection-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            masonryItems.forEach(item => {
+                item.style.opacity = 0;
+                item.style.transform = 'translateY(50px)';
+                item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+<!-- Process Section - Premium Black Theme -->
+<section class="process-dark" id="process">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-title">
+        <h2>Our Creative Journey</h2>
+        <div class="section-subtitle">From vision to installation</div>
+      </div>
+    </div>
+    
+    <div class="timeline">
+      <!-- Timeline Item 1 -->
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-number">01</div>
+          <h3>Vision & Design</h3>
+          <p>We begin with your inspiration. Share your ideas, images, and garden dimensions. Our designers create detailed sketches and 3D models for your approval.</p>
+        </div>
+      </div>
+      
+      <!-- Timeline Item 2 -->
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-number">02</div>
+          <h3>Material Selection</h3>
+          <p>Choose from our premium materials based on your aesthetic preferences, climate conditions, and budget. We guide you through the unique qualities of each option.</p>
+        </div>
+      </div>
+      
+      <!-- Timeline Item 3 -->
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-number">03</div>
+          <h3>Artisan Creation</h3>
+          <p>Master sculptors transform raw materials into art. This stage takes 4-8 weeks depending on complexity, with progress photos shared along the way.</p>
+        </div>
+      </div>
+      
+      <!-- Timeline Item 4 -->
+      <div class="timeline-item">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="timeline-content">
+          <div class="timeline-number">04</div>
+          <h3>Global Delivery</h3>
+          <p>Your sculpture is carefully packaged and shipped. Our team can arrange professional installation to ensure perfect placement in your garden sanctuary.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Premium Testimonial Slider -->
+<section class="testimonials-dark">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-title">
+        <h2>Client Experiences</h2>
+        <div class="section-subtitle">Voices of satisfaction</div>
+      </div>
+    </div>
+
+    <div class="testimonial-slider">
+      <!-- Testimonial Slide 1 -->
+      <div class="testimonial-slide">
+        <div class="testimonial-content">
+          <div class="quote-icon">"</div>
+          <blockquote>
+            <p>The marble fountain transformed our courtyard into a Mediterranean oasis. LuxStone's attention to detail exceeded our expectations at every turn - from initial sketches to final installation.</p>
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="author-image" style="background-image: url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&q=80')"></div>
+            <div class="author-info">
+              <h4>Sophia van der Berg</h4>
+              <p>Cape Town, South Africa</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial Slide 2 -->
+      <div class="testimonial-slide">
+        <div class="testimonial-content">
+          <div class="quote-icon">"</div>
+          <blockquote>
+            <p>Working with their artisans to create a custom bronze sculpture was a revelation. They captured the essence of my vision while improving upon it with their technical mastery. The piece has become the soul of our garden.</p>
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="author-image" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&q=80')"></div>
+            <div class="author-info">
+              <h4>James Rutherford</h4>
+              <p>Cotswolds, UK</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial Slide 3 -->
+      <div class="testimonial-slide">
+        <div class="testimonial-content">
+          <div class="quote-icon">"</div>
+          <blockquote>
+            <p>Our sandstone benches arrived in perfect condition despite the overseas shipping. They've weathered two winters beautifully, developing that perfect patina we hoped for. The craftsmanship is evident in every curve.</p>
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="author-image" style="background-image: url('https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&q=80')"></div>
+            <div class="author-info">
+              <h4>Isabella Conti</h4>
+              <p>Lake Como, Italy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-controls">
+      <button class="slider-prev">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="slider-dots"></div>
+      <button class="slider-next">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Premium Custom Order Section -->
+<section class="custom-order-dark" id="custom-order">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-title">
+        <h2>Commission Your Masterpiece</h2>
+        <div class="section-subtitle">Begin your journey to a bespoke garden sculpture</div>
+      </div>
+    </div>
+    
+    <div class="form-container">
+      <form id="order-form" class="premium-form">
+        <div class="form-row">
+          <div class="form-group">
+            <div class="input-container">
+              <input type="text" id="name" class="form-input" required>
+              <label for="name" class="input-label">Full Name</label>
+              <div class="input-underline"></div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="input-container">
+              <input type="email" id="email" class="form-input" required>
+              <label for="email" class="input-label">Email Address</label>
+              <div class="input-underline"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="input-container">
+            <input type="tel" id="phone" class="form-input">
+            <label for="phone" class="input-label">Contact Number</label>
+            <div class="input-underline"></div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="input-container textarea-container">
+            <textarea id="vision" class="form-input" required></textarea>
+            <label for="vision" class="input-label">Your Vision</label>
+            <div class="input-underline"></div>
+          </div>
+          <div class="input-hint">Describe your vision, preferred materials, dimensions, and any inspiration images you have...</div>
+        </div>
+        
+        <div class="form-group upload-group">
+          <label class="upload-label">Upload Inspiration (Optional)</label>
+          <div class="upload-container" id="upload-area">
+            <div class="upload-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10M12 14.5V20.5M12 20.5L9 17.5M12 20.5L15 17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <p class="upload-text">Drag & drop files here or click to browse</p>
+            <p class="upload-subtext">Max file size: 5MB each (JPG, PNG, PDF)</p>
+            <input type="file" id="file-upload" multiple style="display: none;">
+          </div>
+        </div>
+        
+        <div class="form-submit">
+          <button type="submit" class="submit-btn">
+            <span>Begin Commission Process</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="contact">
+  <div class="section-title">
+    <h2>Connect With Us</h2>
+    <div class="section-subtitle">Our Atelier Awaits Your Presence</div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="contact-text">
+          <h4>Global Atelier</h4>
+          <p>Via della Scultura 42<br>Florence, Tuscany<br>Italy 50122</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+        <div class="contact-text">
+          <h4>Direct Line</h4>
+          <p>+39 055 123 4567</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+        <div class="contact-text">
+          <h4>Commission Inquiries</h4>
+          <p>commissions@luxstone.com</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+        <div class="contact-text">
+          <h4>Studio Hours</h4>
+          <p>Mon–Fri: 9am - 6pm<br>Sat: 10am - 4pm<br>Sun: Closed</p>
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="map-container"></div>
+  </div>
+</section>
+
+
+<!-- Footer Section -->
+<footer class="vasu-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <h2>Vasu Sculpture</h2>
+        <p>Crafting timeless garden sculptures from stone and metal with precision and passion.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Custom Commissions</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> Florence, Italy</li>
+          <li><i class="fas fa-phone-alt"></i> +39 055 123 4567</li>
+          <li><i class="fas fa-envelope"></i> hello@vasusculpture.com</li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Vasu Sculpture. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Font Awesome CDN -->
+<script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+
+
+
+<script src="script.js"></script>
+</body>
+
+</html>

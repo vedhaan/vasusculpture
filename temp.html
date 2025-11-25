@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxStone | Premium Garden Sculptures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --platinum: #e5e4e2;
+            --silver: #c0c0c0;
+            --charcoal: #24292c;
+            --gunmetal: #282828;
+            --light-gray: #f5f7fa;
+            --dark-gray: #2d2d2d;
+            --gold: #d4af37;
+            --bronze: #cd7f32;
+            --shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            --transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'montserrat', sans-serif;
+            color: var(--dark-gray);
+            background: linear-gradient(135deg, var(--light-gray) 0%, #f0f2f5 100%);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--gunmetal);
+            letter-spacing: 0.5px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }   
+
+        section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--charcoal);
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-style: italic;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: transparent;
+            color: var(--platinum);
+            font-weight: 500;
+            border-radius: 0;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid var(--platinum);
+            font-size: 1.05rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--platinum);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover {
+            color: var(--gunmetal);
+        }
+
+        .btn:hover:before {
+            width: 100%;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 0;
+            z-index: 1000;
+            background: transparent;
+            transition: var(--transition);
+            backdrop-filter: blur(0px);
+        }
+
+        header.scrolled {
+            background: rgba(25, 29, 31, 0.92);
+            padding: 15px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--platinum);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 45px;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: var(--platinum);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            padding: 8px 0;
+        }
+
+        .nav-links a:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: var(--platinum);
+            z-index: 1100;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 800px;
+            background: linear-gradient(rgba(42, 52, 57, 0.7), rgba(42, 52, 57, 0.7)), url('https://images.unsplash.com/photo-1599598177991-ec67b5c37318?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--platinum);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(54, 69, 79, 0.6), rgba(42, 52, 57, 0.8));
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            color: var(--platinum);
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 50px;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .btn {
+            margin-top: 20px;
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .hero .btn:before {
+            background: var(--gold);
+        }
+
+        .hero .btn:hover {
+            color: var(--gunmetal);
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light-gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transform: rotate(-2deg);
+            transition: var(--transition);
+        }
+
+        .about-image:hover {
+            transform: rotate(0deg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text h3 {
+            font-size: 2.3rem;
+            margin-bottom: 25px;
+            color: var(--gunmetal);
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+            color: var(--charcoal);
+            font-size: 1.1rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background-color: var(--gunmetal);
+            padding: 150px 0;
+        }
+
+        .gallery .section-title h2 {
+            color: var(--platinum);
+        }
+
+        .gallery .section-title h2:after {
+            background: var(--gold);
+        }
+
+        .masonry-grid {
+            columns: 3;
+            column-gap: 25px;
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition);
+        }
+
+        .masonry-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .masonry-img-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .masonry-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+            transform: scale(1.05);
+        }
+
+        .masonry-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .masonry-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(42, 52, 57, 0.95), transparent);
+            color: white;
+            padding: 40px 25px 25px;
+            transform: translateY(100%);
+            transition: var(--transition);
+            opacity: 1;
+        }
+
+        .masonry-item:hover .masonry-overlay {
+            transform: translateY(0);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--light-gray);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 50px 35px;
+            border-radius: 8px;
+            transition: var(--transition);
+            background: white;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .feature-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--gunmetal);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card:hover:before {
+            width: 100%;
+        }
+
+        .feature-icon {
+            width: 90px;
+            height: 90px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 2.2rem;
+            color: var(--gold);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--gold);
+            color: var(--gunmetal);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            transition: var(--transition);
+        }
+
+        .feature-card p {
+            transition: var(--transition);
+        }
+
+        .feature-card:hover h3,
+        .feature-card:hover p {
+            color: var(--platinum);
+        }
+
+        /* Materials Section */
+        .materials {
+            background: linear-gradient(to bottom, var(--light-gray) 0%, #e2e6ea 100%);
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 35px;
+        }
+
+        .material-card {
+            text-align: center;
+            padding: 50px 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .material-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .material-icon {
+            font-size: 3.8rem;
+            color: var(--gold);
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+
+        .material-card:hover .material-icon {
+            transform: scale(1.2);
+            color: var(--bronze);
+        }
+
+        .material-card h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        /* Process Section */
+        .process {
+            background-color: var(--gunmetal);
+            color: var(--platinum);
+        }
+
+        .process .section-title h2 {
+            color: var(--platinum);
+        }
+
+        .process .section-title h2:after {
+            background: var(--gold);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--gold), var(--bronze));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            position: relative;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 20px;
+            color: var(--gold);
+            font-size: 1.8rem;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: var(--gunmetal);
+            border: 4px solid var(--gold);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -15px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -15px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(to bottom, #e2e6ea 0%, var(--light-gray) 100%);
+        }
+
+        .testimonials-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin: 20px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .testimonial-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial-card::before {
+            content: "";
+            position: absolute;
+            top: -30px;
+            left: 20px;
+            font-size: 6rem;
+            color: var(--gold);
+            font-family: Georgia, serif;
+            opacity: 0.2;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 30px;
+            color: var(--charcoal);
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+            border: 3px solid var(--gold);
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .stars {
+            color: var(--gold);
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        /* Form Section */
+        .custom-order {
+            background-color: var(--gunmetal);
+            color: var(--platinum);
+        }
+
+        .custom-order .section-title h2 {
+            color: var(--platinum);
+        }
+
+        .custom-order .section-title h2:after {
+            background: var(--gold);
+        }
+
+        .form-container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 500;
+            color: var(--platinum);
+            font-size: 1.1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--platinum);
+        }
+
+        .form-control:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .upload-container {
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .upload-container:hover {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.3);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .upload-container:hover .upload-icon {
+            color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(to bottom, var(--light-gray) 0%, #e2e6ea 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gunmetal);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            margin-bottom: 8px;
+            font-size: 1.4rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gunmetal);
+            color: var(--platinum);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 1.3rem;
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            color: var(--gunmetal);
+            transform: translateY(-5px);
+        }
+
+        .map-container {
+            height: 450px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: linear-gradient(45deg, #2a3439, #36454f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--platinum);
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') center center/cover;
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gunmetal);
+            color: var(--platinum);
+            padding: 80px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--gold), var(--bronze));
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-about p {
+            margin-bottom: 25px;
+            color: rgba(229, 228, 226, 0.8);
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .footer-links h4:after,
+        .footer-contact h4:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(229, 228, 226, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 8px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 15px;
+            color: rgba(229, 228, 226, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(229, 228, 226, 0.6);
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .masonry-grid {
+                columns: 2;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 18px !important;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                background: var(--gunmetal);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding-top: 40px;
+                transition: var(--transition);
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 25px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+
+            .hero p {
+                font-size: 1.4rem;
+            }
+
+            section {
+                padding: 90px 0;
+            }
+
+            .form-container {
+                padding: 40px 25px;
+            }
+
+            .masonry-grid {
+                columns: 1;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-mountain logo-icon"></i>
+                    Vasu<span>Sculpture</span>
+                </a>
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#features">Excellence</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#custom-order">Commission</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <!-- <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Timeless Stone Elegance</h1>
+            <p>Premium garden sculptures handcrafted to transform your outdoor sanctuary into a gallery of natural art</p>
+            <a href="#custom-order" class="btn">Commission Your Masterpiece</a>
+        </div>
+    </section> -->
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Heritage</h2>
+                <div class="section-subtitle">Where centuries-old craftsmanship meets contemporary design</div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="img/DOC-20250728-WA0021.jpg" alt="Artisan at work">
+                </div>
+                <div class="about-text">
+                    <h3>Elevating Gardens Since 1998</h3>
+                    <p>Founded in the artistic heart of Tuscany, LuxStone began as a passion project of master sculptor
+                        Giovanni Rossi. Today, we continue his legacy by blending traditional stone carving techniques
+                        with modern design sensibilities.</p>
+                    <p>Each sculpture is conceived and executed by artisans who have dedicated their lives to mastering
+                        stone. We believe in creating pieces that don't just adorn a garden, but become an integral part
+                        of its story and soul.</p>
+                    <p>Our commitment to sustainable practices and ethical sourcing ensures that every creation not only
+                        enhances your space but also respects our planet for generations to come.</p>
+                    <a href="#process" class="btn"
+                        style="border-color: var(--gunmetal); color: var(--gunmetal);">Discover Our Process</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Masterpiece Gallery</h2>
+                <div class="section-subtitle">Explore our collection of contemporary stone artistry</div>
+            </div>
+            <div class="masonry-grid">
+                <div class="masonry-item">
+                    <div class="masonry-img-container">
+                        <img src="img/DOC-20250728-WA0002.jpg" alt="Modern Angel Statue">
+                        <div class="masonry-overlay">
+                            <h3>Celestial Guardian</h3>
+                            <p>Carrara Marble • 42" tall</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-item">
+                    <div class="masonry-img-container">
+                        <img src="img/DOC-20250728-WA0003.jpg" alt="Classical Bust">
+                        <div class="masonry-overlay">
+                            <h3>Contemplation</h3>
+                            <p>Weatherproof Resin • 28" tall</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-item">
+                    <div class="masonry-img-container">
+                        <img src="img/DOC-20250728-WA0006.jpg" alt="Stone Animal Sculpture">
+                        <div class="masonry-overlay">
+                            <h3>Guardian Lion</h3>
+                            <p>Granite • 32" tall</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-item">
+                    <div class="masonry-img-container">
+                        <img src="img/DOC-20250728-WA0005.jpg" alt="Abstract Stone Sculpture">
+                        <div class="masonry-overlay">
+                            <h3>Harmonic Flow</h3>
+                            <p>Sandstone • 36" tall</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-item">
+                    <div class="masonry-img-container">
+                        <img src="img/DOC-20250728-WA0009.jpg" alt="Bird Bath with Sculpture">
+                        <div class="masonry-overlay">
+                            <h3>Water Nymph Fountain</h3>
+                            <p>Cast Stone • 48" tall</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-item">
+                    <div class="masonry-img-container">
+                        <img src="img/DOC-20250728-WA0021.jpg" alt="Modern Abstract Sculpture">
+                        <div class="masonry-overlay">
+                            <h3>Desert Sentinel</h3>
+                            <p>Bronze Composite • 54" tall</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Craftsmanship Excellence</h2>
+                <div class="section-subtitle">The pillars of our uncompromising quality</div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands"></i>
+                    </div>
+                    <h3>Artisan Crafted</h3>
+                    <p>Each piece is meticulously shaped by master sculptors with decades of experience in stone carving
+                        and sculpting traditions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>All-Weather Resilience</h3>
+                    <p>Our sculptures withstand extreme conditions, maintaining structural integrity and beauty for
+                        decades without deterioration.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Bespoke Creations</h3>
+                    <p>Collaborate with our artists to create unique pieces tailored to your vision and garden
+                        aesthetics.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe-europe"></i>
+                    </div>
+                    <h3>Global Curation</h3>
+                    <p>Secure worldwide shipping with museum-grade packaging to ensure your sculpture arrives in
+                        pristine condition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materials Section -->
+    <section class="materials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Premium Materials</h2>
+                <div class="section-subtitle">Sourced from the finest quarries around the world</div>
+            </div>
+            <div class="materials-grid">
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3>Italian Marble</h3>
+                    <p>Luxurious Carrara marble prized for its luminous white background and subtle grey veining.</p>
+                </div>
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Architectural Resin</h3>
+                    <p>High-density resin that withstands extreme temperatures while maintaining intricate details.</p>
+                </div>
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i class="fas fa-hill-rockslide"></i>
+                    </div>
+                    <h3>Natural Sandstone</h3>
+                    <p>Sedimentary stone with warm hues that develops a beautiful patina over time.</p>
+                </div>
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i class="fas fa-diamond"></i>
+                    </div>
+                    <h3>Cast Bronze</h3>
+                    <p>Traditional bronze casting using the lost-wax method for timeless heirloom pieces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Creative Journey</h2>
+                <div class="section-subtitle">From vision to installation</div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Vision & Design</h3>
+                        <p>We begin with your inspiration. Share your ideas, images, and garden dimensions. Our
+                            designers create detailed sketches and 3D models for your approval.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Material Selection</h3>
+                        <p>Choose from our premium materials based on your aesthetic preferences, climate conditions,
+                            and budget. We guide you through the unique qualities of each option.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Artisan Creation</h3>
+                        <p>Master sculptors transform raw materials into art. This stage takes 4-8 weeks depending on
+                            complexity, with progress photos shared along the way.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Global Delivery</h3>
+                        <p>Your sculpture is carefully packaged and shipped. Our team can arrange professional
+                            installation to ensure perfect placement in your garden sanctuary.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Experiences</h2>
+                <div class="section-subtitle">Stories from our collectors</div>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Our custom garden sculpture exceeded all expectations. The attention to
+                        detail is extraordinary. It has become the focal point of our entire landscape and receives
+                        constant compliments from visitors. The team at LuxStone transformed our vague ideas into a
+                        breathtaking reality."</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson">
+                        </div>
+                        <div>
+                            <h4>Sarah Johnson</h4>
+                            <p>Hampshire, UK</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Order Section -->
+    <section class="custom-order" id="custom-order">
+        <div class="container">
+            <div class="section-title">
+                <h2>Commission Your Masterpiece</h2>
+                <div class="section-subtitle">Begin your journey to a bespoke garden sculpture</div>
+            </div>
+            <div class="form-container">
+                <form id="order-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Contact Number</label>
+                        <input type="tel" id="phone" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Your Vision</label>
+                        <textarea class="form-control"
+                            placeholder="Describe your vision, preferred materials, dimensions, and any inspiration images you have..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Upload Inspiration (Optional)</label>
+                        <div class="upload-container">
+                            <div class="upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <p>Drag & drop files here or click to browse</p>
+                            <p class="small">Max file size: 5MB each (JPG, PNG, PDF)</p>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn"
+                        style="width: 100%; border-color: var(--gold); color: var(--gold);">Begin Commission
+                        Process</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Connect With Us</h2>
+                <div class="section-subtitle">Our studio welcomes your inquiries</div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Global Atelier</h4>
+                            <p>Via della Scultura 42<br>Florence, Tuscany<br>Italy 50122</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Direct Line</h4>
+                            <p>+39 055 123 4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Commission Inquiries</h4>
+                            <p>commissions@luxstone.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Studio Hours</h4>
+                            <p>Monday-Friday: 9am - 6pm CET<br>Saturday: 10am - 4pm<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <div class="map-overlay"></div>
+                    <p>Florence Atelier Location</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Lux<span>Stone</span></div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi ad debitis, labore fugiat
+                        nisi natus ipsum. Beatae a minus, obcaecati labore possimus eaque libero dignissimos tenetur,
+                        veniam nihil facilis accusantium?</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Collections</h4>
+                    <ul>
+                        <li><a href="#">Modern Abstracts</a></li>
+                        <li><a href="#">Classical Forms</a></li>
+                        <li><a href="#">Water Features</a></li>
+                        <li><a href="#">Botanical Sculptures</a></li>
+                        <li><a href="#">Architectural Elements</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Via della Scultura 42, Florence</p>
+                    <p><i class="fas fa-phone-alt"></i> +39 055 123 4567</p>
+                    <p><i class="fas fa-envelope"></i> hello@luxstone.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 LuxStone Sculptures. All rights reserved. Crafted with passion in Italy.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.innerHTML = navLinks.classList.contains('active') ?
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close menu when clicking on links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Header scroll effect with GSAP animation
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+                gsap.to(header, {
+                    duration: 0.5,
+                    backdropFilter: 'blur(10px)',
+                    ease: 'power3.out'
+                });
+            } else {
+                header.classList.remove('scrolled');
+                gsap.to(header, {
+                    duration: 0.5,
+                    backdropFilter: 'blur(0px)',
+                    ease: 'power3.out'
+                });
+            }
+        });
+
+        // Form submission
+        const orderForm = document.getElementById('order-form');
+        orderForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Formspree integration would go here
+            alert('Thank you for your commission request! Our studio director will contact you within 24 hours.');
+            orderForm.reset();
+        });
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero text animation
+        gsap.from('.hero h1', {
+            duration: 1.5,
+            y: 80,
+            opacity: 0,
+            ease: 'power4.out',
+            delay: 0.3
+        });
+
+        gsap.from('.hero p', {
+            duration: 1.2,
+            y: 60,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 0.8
+        });
+
+        gsap.from('.hero .btn', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 1.3
+        });
+
+        // Section title animations
+        gsap.utils.toArray('.section-title').forEach(title => {
+            gsap.from(title, {
+                scrollTrigger: {
+                    trigger: title,
+                    start: 'top 85%'
+                },
+                y: 60,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+        });
+
+        // About section animation
+        gsap.from('.about-image', {
+            scrollTrigger: {
+                trigger: '.about-content',
+                start: 'top 80%'
+            },
+            x: -100,
+            opacity: 0,
+            duration: 1.2,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.about-text', {
+            scrollTrigger: {
+                trigger: '.about-content',
+                start: 'top 80%'
+            },
+            x: 100,
+            opacity: 0,
+            duration: 1.2,
+            ease: 'power3.out'
+        });
+
+        // Gallery animations
+        const galleryItems = document.querySelectorAll('.masonry-item');
+        galleryItems.forEach((item, index) => {
+            gsap.to(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 90%'
+                },
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                delay: index * 0.15,
+                ease: 'power3.out',
+                onComplete: () => item.classList.add('visible')
+            });
+        });
+
+        // Feature card animations
+        gsap.from('.feature-card', {
+            scrollTrigger: {
+                trigger: '.features-grid',
+                start: 'top 85%'
+            },
+            y: 60,
+            // opacity: 0,
+            stagger: 0.2,
+            duration: 1,
+            ease: 'power3.out'
+        });
+
+        // Timeline animations
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach((item, index) => {
+            gsap.to(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 90%'
+                },
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                delay: index * 0.3,
+                ease: 'power3.out',
+                onComplete: () => item.classList.add('visible')
+            });
+        });
+
+        // Testimonial animation
+        gsap.to('.testimonial-card', {
+            scrollTrigger: {
+                trigger: '.testimonial-card',
+                start: 'top 90%'
+            },
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: 'power3.out',
+            onComplete: () => document.querySelector('.testimonial-card').classList.add('visible')
+        });
+
+        // Form container animation
+        gsap.from('.form-container', {
+            scrollTrigger: {
+                trigger: '.form-container',
+                start: 'top 90%'
+            },
+            y: 60,
+            opacity: 0,
+            duration: 1.2,
+            ease: 'power3.out'
+        });
+
+        // Contact section animation
+        gsap.from('.contact-info', {
+            scrollTrigger: {
+                trigger: '.contact-grid',
+                start: 'top 85%'
+            },
+            x: -60,
+            opacity: 0,
+            duration: 1.2,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.map-container', {
+            scrollTrigger: {
+                trigger: '.contact-grid',
+                start: 'top 85%'
+            },
+            x: 60,
+            opacity: 0,
+            duration: 1.2,
+            ease: 'power3.out'
+        });
+
+        // Footer animation
+        gsap.from('.footer-content', {
+            scrollTrigger: {
+                trigger: 'footer',
+                start: 'top 90%'
+            },
+            y: 60,
+            opacity: 0,
+            duration: 1.2,
+            ease: 'power3.out'
+        });
+    </script>
+</body>
+
+</html>
